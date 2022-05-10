@@ -1,0 +1,49 @@
+@import "../../../../styles/defaults/colors.scss";
+
+.input {
+   display: flex;
+   flex-direction: column-reverse;
+   position: relative;
+   padding-top: 1rem;
+   font-size: 1.5rem;
+   & + .input {
+      margin-top: 0rem;
+   }
+}
+
+.inputField {
+   border: 0;
+   z-index: 1;
+   background-color: transparent;
+   border-bottom: 2px solid $DARK_GRAY_BLUE;
+   font: inherit;
+   padding: 0.25rem 0;
+   color: $WHITE;
+   &:focus,
+   &:valid {
+      outline: 0;
+      border-bottom-color: $WHITE;
+      & + .inputLabel {
+         color: $DARK_GRAY_BLUE;
+         transform: translateY(-2.1rem);
+      }
+   }
+}
+
+.inputLabel {
+   color: $WHITE;
+   position: absolute;
+   top: 1rem;
+   transition: 0.25s ease;
+}
+
+@media (max-width: 577px) {
+   .inputField {
+      &:focus,
+      &:valid {
+         & + .inputLabel {
+            transform: translateY(-4rem);
+         }
+      }
+   }
+}
